@@ -1,0 +1,59 @@
+.exel-table {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: $headerHeight + $toolbarHeight + $formulaHeight;
+	overflow-x: auto;
+	padding-bottom: 2px;
+
+	.row {
+		display: flex;
+		height: $rowHeight;
+	}
+
+	.row-info {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: $infoCellWith;
+		height: 100%;
+		border: 1px solid $borderColor;
+		background-color: #f8f9fa;
+		border-top: none;
+	}
+
+	.row-data {
+		display: flex;
+	}
+	.column {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid $borderColor;
+		min-width: $infoCellWith;
+		width: $cellWidth;
+		background-color: #f8f9fa;
+		border-top: none;
+		border-left: none;
+	}
+
+	.cell {
+		color: $dark;
+		min-width: $infoCellWith;
+		padding: 5px;
+		width: $cellWidth;
+		height: 100%;
+		border: 1px solid #e2e3e3;
+		border-top: none;
+		border-left: none;
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+		outline: none;
+		&--selected {
+			outline: 2px solid #3c74ff;
+			border-color: transparent;
+			z-index: 2;
+		}
+	}
+}

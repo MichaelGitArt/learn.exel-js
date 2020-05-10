@@ -1,5 +1,24 @@
-$red: blue;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import "~bootstrap-reboot";
+@import "vars", "mixins";
 
 body {
-	// background: $red;
+	font-family: "Roboto", sans-serif;
+	color: $default;
+}
+@import "./components";
+
+@import "header";
+@import "toolbar";
+@import "formula";
+@import "table";
+
+@import "dashboard";
+
+.exel {
+	position: relative;
+	color: #888;
+	height: 100%;
+	max-width: 100%;
+	font-size: 0.8rem;
 }

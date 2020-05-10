@@ -1,0 +1,24 @@
+.a-btn {
+	min-width: 24px;
+	height: 24px;
+	text-align: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	color: rgba(0, 0, 0, 0.7);
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	i {
+		font-size: 18px;
+	}
+	&:active,
+	.active {
+		color: #23a566;
+	}
+	&:hover {
+		color: #23a566;
+		background: #eee;
+	}
+}

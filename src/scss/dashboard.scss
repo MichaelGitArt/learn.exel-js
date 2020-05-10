@@ -1,0 +1,79 @@
+.db {
+}
+.db-header {
+	color: $dark;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: $dbHeaderHeight;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 5px 2px rgba(60, 60, 67, 0.15);
+	z-index: 1000;
+}
+.db-new {
+	padding: 1.5rem;
+	margin-top: $dbHeaderHeight;
+	background: rgba(221, 221, 221, 0.199);
+	&__create {
+		align-items: center;
+		background: #fff;
+		border-radius: 4px;
+		border: 1px solid #e2e3e3;
+		box-shadow: 0 2px 5px 0px rgba(60, 60, 67, 0.15);
+		display: flex;
+		height: 160px;
+		justify-content: center;
+		width: 160px;
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: $dark;
+		font-weight: 500;
+		text-align: center;
+		transition: all 0.3s;
+		&:hover {
+			box-shadow: 0 2px 8px 0px rgba(60, 60, 67, 0.25);
+			text-decoration: none;
+			color: green;
+		}
+	}
+}
+.db-table {
+	padding-top: 20px;
+}
+
+.db-view {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.db-list {
+	padding: 0 1rem;
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		color: $dark;
+		margin-bottom: 8px;
+		font-weight: 500;
+		font-size: 16px;
+		padding: 0 12px;
+	}
+	&__content {
+		@include reset-list;
+		&-item {
+			margin-bottom: 5px;
+			display: flex;
+			justify-content: space-between;
+			padding: 5px 12px;
+			border-radius: 22px;
+			&:hover {
+				background: rgba(121, 121, 121, 0.116);
+			}
+			a {
+				color: $dark;
+			}
+		}
+	}
+}
