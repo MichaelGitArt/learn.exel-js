@@ -1,0 +1,24 @@
+.exel-formula {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: $headerHeight + $toolbarHeight;
+	height: $formulaHeight;
+	border-bottom: 1px solid $borderColor;
+	display: flex;
+	align-items: center;
+	&__info {
+		font-size: 18px;
+		text-align: center;
+		font-style: italic;
+		border-right: 1px solid $borderColor;
+		min-width: $infoCellWith;
+	}
+	&__input {
+		flex-grow: 1;
+		outline: none;
+		line-height: 1.2;
+		padding: 2px 10px;
+		color: $dark;
+	}
+}

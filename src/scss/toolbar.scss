@@ -1,0 +1,11 @@
+.exel-toolbar {
+	position: absolute;
+	height: $toolbarHeight;
+	left: 0;
+	right: 0;
+	top: $headerHeight;
+	border-top: 1px solid $borderColor;
+	border-bottom: 1px solid $borderColor;
+	display: flex;
+	align-items: center;
+}

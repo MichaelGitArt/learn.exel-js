@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const chokidar = require('chokidar');
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
@@ -63,7 +64,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
 		new HTMLWebpackPlugin({
 			template: 'index.html'
 		}),
@@ -74,10 +74,18 @@ module.exports = {
 		),
 		new MiniCssExtractPlugin({
 			filename: 'bundle.[hash].css'
-		})
+		}),
+		new CleanWebpackPlugin(),
 	],
 	devServer: {
 		port: 3000,
-		hot: true
+		hot: true,
+		before(app, server) {
+			chokidar.watch([
+				'./src/**/*.html'
+			]).on('all', function () {
+				server.sockWrite(server.sockets, 'content-changed');
+			})
+		},
 	}
 }
