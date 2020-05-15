@@ -1,3 +1,4 @@
+@import "vars";
 .exel-table {
 	position: absolute;
 	left: 0;
@@ -40,7 +41,7 @@
 	.cell {
 		color: $dark;
 		min-width: $infoCellWith;
-		padding: 5px;
+		padding: 2px 5px ;
 		width: $cellWidth;
 		height: 100%;
 		border: 1px solid #e2e3e3;

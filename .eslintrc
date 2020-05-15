@@ -1,0 +1,18 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-tabs": 0,
+    "indent": [2, "tab"],
+    "no-unused-vars": "off",
+    "space-before-function-paren": "off",
+    "require-jsdoc": "off",
+    "object-curly-spacing": "off",
+    "linebreak-style": "off"
+  },
+  "extends": "google"
+}

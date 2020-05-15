@@ -13,45 +13,42 @@ const jsLoaders = () => {
 		{
 			loader: 'babel-loader',
 			options: {
-				"presets": ["@babel/preset-env"],
-			}
-		}
-	]
+				presets: ['@babel/preset-env'],
+				plugins: ['@babel/plugin-proposal-class-properties'],
+			},
+		},
+	];
 	if (isDev) {
 		loaders.push('eslint-loader');
 	}
 
 	return loaders;
-}
+};
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
-	entry: './index.js',
+	entry: './app.js',
 	mode: 'development',
 	devtool: isDev ? 'source-map' : false,
 	output: {
 		filename: 'bundle.[hash].js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
 	},
 	resolve: {
 		extensions: ['.js'],
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 			'@core': path.resolve(__dirname, 'src/core'),
-		}
+		},
 	},
 	module: {
 		rules: [
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
-					isProd ?
-						{
-							loader: MiniCssExtractPlugin.loader,
-						} :
-						{
-							loader: 'style-loader',
-						},
+					{
+						loader: isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+					},
 					'css-loader',
 					'sass-loader',
 				],
@@ -59,21 +56,22 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: jsLoaders()
-			}
+				use: jsLoaders(),
+			},
 		],
 	},
 	plugins: [
 		new HTMLWebpackPlugin({
-			template: 'index.html'
+			template: 'index.html',
 		}),
-		new CopyPlugin([{
-			from: path.resolve(__dirname, 'src/favicon.ico'),
-			to: path.resolve(__dirname, 'dist')
-		},]
-		),
+		new CopyPlugin([
+			{
+				from: path.resolve(__dirname, 'src/favicon.ico'),
+				to: path.resolve(__dirname, 'dist'),
+			},
+		]),
 		new MiniCssExtractPlugin({
-			filename: 'bundle.[hash].css'
+			filename: 'bundle.[hash].css',
 		}),
 		new CleanWebpackPlugin(),
 	],
@@ -81,11 +79,9 @@ module.exports = {
 		port: 3000,
 		hot: true,
 		before(app, server) {
-			chokidar.watch([
-				'./src/**/*.html'
-			]).on('all', function () {
+			chokidar.watch(['./src/**/*.html']).on('all', function () {
 				server.sockWrite(server.sockets, 'content-changed');
-			})
+			});
 		},
-	}
-}
+	},
+};
