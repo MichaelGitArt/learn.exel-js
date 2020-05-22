@@ -1,4 +1,4 @@
-@import "vars";
+@import 'vars';
 .exel-table {
 	position: absolute;
 	left: 0;
@@ -8,82 +8,84 @@
 	padding-bottom: 2px;
 }
 
-	.row {
-		display: flex;
-		height: $rowHeight;
-	}
+.row {
+	display: flex;
+	height: $rowHeight;
+}
 
-	.row-info {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-width: $infoCellWith;
-		height: 100%;
-		border: 1px solid $borderColor;
-		background-color: #f8f9fa;
-		border-top: none;
-	}
+.row-info {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: $infoCellWith;
+	height: 100%;
+	border: 1px solid $borderColor;
+	background-color: #f8f9fa;
+	border-top: none;
+}
 
-	.row-data {
-		display: flex;
-	}
-	.column {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid $borderColor;
-		min-width: $infoCellWith;
-		width: $cellWidth;
-		background-color: #f8f9fa;
-		border-top: none;
-		border-left: none;
-		position: relative;
-	}
+.row-data {
+	display: flex;
+}
+.column {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid $borderColor;
+	min-width: $infoCellWith;
+	width: $cellWidth;
+	background-color: #f8f9fa;
+	border-top: none;
+	border-left: none;
+	position: relative;
+}
 
-	.cell {
-		color: $dark;
-		min-width: $infoCellWith;
-		padding: 2px 5px ;
-		width: $cellWidth;
-		height: 100%;
-		border: 1px solid #e2e3e3;
-		border-top: none;
-		border-left: none;
-		white-space: nowrap;
-		display: flex;
-		align-items: center;
-		outline: none;
-		&--selected {
-			outline: 2px solid $primaryColor;
-			border-color: transparent;
-			z-index: 2;
-		}
+.cell {
+	color: $dark;
+	min-width: $infoCellWith;
+	padding: 2px 5px;
+	width: $cellWidth;
+	height: 100%;
+	border: 1px solid #e2e3e3;
+	border-top: none;
+	border-left: none;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	outline: none;
+	&--selected {
+		outline: 2px solid $primaryColor;
+		border-color: transparent;
+		z-index: 2;
 	}
+}
 
-	.col-resize, .row-resize{
-				position: absolute;
-		bottom: 0;
-		right: 0;
-		background: $primaryColor;
-		opacity: 0;
-	&:hover{
-			opacity: 1;
-		}
+.col-resize,
+.row-resize {
+	z-index: 100;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: $primaryColor;
+	opacity: 0;
+	&:hover {
+		opacity: 1 !important;
 	}
+}
 
-	.col-resize{
-		top: 0;
-		width: 3px;
-		&:hover{
-			cursor: col-resize;
-		}
+.col-resize {
+	top: 0;
+	width: 3px;
+	&:hover {
+		cursor: col-resize;
 	}
+}
 
-	.row-resize{
-		left: 0;
-		height: 3px;
-		&:hover{
-			cursor: row-resize;
-		}
+.row-resize {
+	left: 0;
+	height: 3px;
+	&:hover {
+		cursor: row-resize;
 	}
+}

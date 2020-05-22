@@ -3,16 +3,16 @@ const CODES = {
 	Z: 90,
 };
 
-function toCell() {
+function toCell(_, col) {
 	return `
-	<div class="cell" contenteditable>
+	<div class="cell" contenteditable data-col="${col}">
 	</div>
 	`;
 }
 
-function toColumn(col) {
+function toColumn(col, index) {
 	return `
-	<div class="column">
+	<div class="column" data-resize-parent data-col="${index}">
 		${col}
 		<div class="col-resize" data-resize="col"></div>
 	</div>`;
@@ -24,7 +24,7 @@ function createRow(index, content) {
 		: '';
 
 	return `
-	<div class="row">
+	<div class="row" data-resize-parent>
 		<div class="row-info">
 			${index ? index : ''}
 			${resizer}
