@@ -52,9 +52,8 @@
 	border-left: none;
 	white-space: nowrap;
 	display: flex;
-	align-items: center;
 	outline: none;
-	&--selected {
+	&.selected {
 		outline: 2px solid $primaryColor;
 		border-color: transparent;
 		z-index: 2;
