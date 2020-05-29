@@ -1,11 +1,14 @@
 import { $ } from '@core/dom';
 import { Emitter } from '@core/Emitter';
+import { StoreSubscriber } from '@core/StoreSubscriber';
 
 export class Exel {
 	constructor(selector, options) {
 		this.$el = document.querySelector(selector);
 		this.components = options.components || [];
+		this.store = options.store;
 		this.emitter = new Emitter();
+		this.subscriber = new StoreSubscriber(this.store);
 	}
 
 	getRoot() {
@@ -13,6 +16,7 @@ export class Exel {
 
 		const componentOptions = {
 			emitter: this.emitter,
+			store: this.store,
 		};
 		this.components = this.components.map((Component) => {
 			const $el = $.create('div', Component.className);
@@ -27,10 +31,12 @@ export class Exel {
 
 	render() {
 		this.$el.insertAdjacentElement('afterbegin', this.getRoot());
+		this.subscriber.subscribeComponents(this.components);
 		this.components.forEach((component) => component.init());
 	}
 
 	destroy() {
+		this.subscriber.unSubscribeFromStore();
 		this.components.forEach((component) => component.destroy());
 	}
 }

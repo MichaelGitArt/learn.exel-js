@@ -19,38 +19,19 @@ export class TableSelection {
 		this.group = [];
 	}
 
+	get selectedIds() {
+		return this.group.map(($el) => $el.id());
+	}
+
 	selectGroup($group = []) {
 		this.clear();
 		this.group = $group;
 		this.group.forEach(($el) => $el.addClass(TableSelection.className));
 	}
-}
 
-/*
-	selectGroup($el) {
-		if (this.group.length > 1) {
-			return this.select($el);
-		}
-		this.clear();
-
-		const [lastRow, lastCol] = this.group[0].data.id
-			.split(':')
-			.map((strNum) => +strNum);
-		const [curRow, curCol] = $el.data.id.split(':').map((strNum) => +strNum);
-
-		const rows = Math.abs(curRow - lastRow);
-		const cols = Math.abs(curCol - lastCol);
-
-		for (let handledRows = 0; handledRows <= rows; handledRows++) {
-			const rowId = Math.min(+lastRow, +curRow) + handledRows;
-
-			for (let handledCols = 0; handledCols <= cols; handledCols++) {
-				const colId = Math.min(+lastCol, +curCol) + handledCols;
-
-				const cell = $(`[data-id="${rowId}:${colId}"]`);
-				this.group.push(cell);
-				cell.addClass(TableSelection.className);
-			}
-		}
+	applyStyle(style) {
+		this.group.forEach(($el) => {
+			$el.css(style);
+		});
 	}
- */
+}

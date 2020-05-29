@@ -14,8 +14,9 @@
 		font-size: 18px;
 	}
 	&:active,
-	.active {
+	&--active {
 		color: #23a566;
+		box-shadow: 0 0 3px rgba(35, 165, 102, 0.48);
 	}
 	&:hover {
 		color: #23a566;
