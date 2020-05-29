@@ -51,7 +51,6 @@
 	border-top: none;
 	border-left: none;
 	white-space: nowrap;
-	display: flex;
 	outline: none;
 	&.selected {
 		outline: 2px solid $primaryColor;

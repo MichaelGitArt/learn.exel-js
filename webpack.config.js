@@ -13,13 +13,17 @@ const jsLoaders = () => {
 		{
 			loader: 'babel-loader',
 			options: {
+				sourceMaps: 'inline',
 				presets: ['@babel/preset-env'],
-				plugins: ['@babel/plugin-proposal-class-properties'],
+				plugins: [
+					'@babel/plugin-proposal-class-properties',
+					'@babel/plugin-transform-runtime',
+				],
 			},
 		},
 	];
 	if (isDev) {
-		loaders.push('eslint-loader');
+		loaders.push({ loader: 'eslint-loader' });
 	}
 
 	return loaders;
