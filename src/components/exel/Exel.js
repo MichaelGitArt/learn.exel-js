@@ -1,10 +1,10 @@
 import { $ } from '@core/dom';
 import { Emitter } from '@core/Emitter';
 import { StoreSubscriber } from '@core/StoreSubscriber';
+import { updateDate } from '@/redux/actions';
 
 export class Exel {
-	constructor(selector, options) {
-		this.$el = document.querySelector(selector);
+	constructor(options) {
 		this.components = options.components || [];
 		this.store = options.store;
 		this.emitter = new Emitter();
@@ -29,8 +29,14 @@ export class Exel {
 		return $root.$el;
 	}
 
-	render() {
-		this.$el.insertAdjacentElement('afterbegin', this.getRoot());
+	init() {
+		console.log(process.env.NODE_ENV);
+		if (process.env.NODE_ENV === 'production') {
+			document.addEventListener('contextmenu', (event) => {
+				event.preventDefault();
+			});
+		}
+		this.store.dispatch(updateDate());
 		this.subscriber.subscribeComponents(this.components);
 		this.components.forEach((component) => component.init());
 	}

@@ -1,4 +1,4 @@
-import { storage } from '@core/utils';
+import { clone, storage } from '@core/utils';
 import { defaultStyles, defaultTitle } from '@/constans';
 
 const defaultState = {
@@ -9,6 +9,7 @@ const defaultState = {
 	stylesState: {},
 	currentText: '',
 	currentStyles: defaultStyles,
+	openedDate: new Date().toJSON(),
 };
 
 const normalize = (state) => ({
@@ -19,4 +20,8 @@ const normalize = (state) => ({
 
 export const initialState = storage('exel-state')
 	? normalize(storage('exel-state'))
-	: defaultState;
+	: clone(defaultState);
+
+export function normalizeInitialState(state) {
+	return state ? normalize(state) : clone(defaultState);
+}

@@ -30,7 +30,7 @@ export class DomListener {
 					`Method ${methodName} is not implemented in ${this.name} Component. Impossible to remove the method`
 				);
 			}
-			const method = this.$root.off(listener, this[methodName]);
+			this.$root.off(listener, this[methodName]);
 		});
 	}
 }
