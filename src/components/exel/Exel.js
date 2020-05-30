@@ -30,7 +30,6 @@ export class Exel {
 	}
 
 	init() {
-		console.log(process.env.NODE_ENV);
 		if (process.env.NODE_ENV === 'production') {
 			document.addEventListener('contextmenu', (event) => {
 				event.preventDefault();

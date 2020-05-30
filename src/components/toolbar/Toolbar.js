@@ -33,7 +33,6 @@ export class Toolbar extends ExelStateComponent {
 	}
 
 	storeChanged(changes) {
-		console.log('storeChanged');
 		this.setState(changes.currentStyles);
 	}
 
