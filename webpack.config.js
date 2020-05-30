@@ -10,21 +10,9 @@ const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
 
 const jsLoaders = () => {
-	const loaders = [
-		{
-			loader: 'babel-loader',
-			options: {
-				sourceMaps: 'inline',
-				presets: ['@babel/preset-env'],
-				plugins: [
-					'@babel/plugin-proposal-class-properties',
-					'@babel/plugin-transform-runtime',
-				],
-			},
-		},
-	];
+	const loaders = ['babel-loader'];
 	if (isDev) {
-		loaders.push({ loader: 'eslint-loader' });
+		loaders.push('eslint-loader');
 	}
 
 	return loaders;
