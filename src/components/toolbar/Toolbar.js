@@ -1,4 +1,3 @@
-import { ExelComponent } from '@core/ExelComponent';
 import { createToolbar } from '@/components/toolbar/toolbar.template';
 import { $ } from '@core/dom';
 import { ExelStateComponent } from '@core/ExelStateComponent';
